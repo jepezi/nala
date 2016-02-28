@@ -45,33 +45,35 @@ export function createServer() {
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({ extended: true }));
 
-  // Security settings
-  // hpp protects against parameter pollution attacks
-  server.use(hpp())
-  // Helmet is a suite of security middleware functions to try and protect
-  // against common attacks. Get more info from the helmet README
-  server.use(helmet.csp({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: [
-        "'self'",
-        "'unsafe-inline'",
-        'oss.maxcdn.com'
-      ],
-      styleSrc: ["'self'", "'unsafe-inline'"],
-      imgSrc: ["'self'"],
-      connectSrc: ["'self'", 'ws:', 'jsonplaceholder.typicode.com'],
-      fontSrc: ["'self'"],
-      objectSrc: ["'none'"],
-      mediaSrc: ["'none'"],
-      frameSrc: ["'none'"]
-    },
-    disableAndroid: false
-  }))
-  server.use(helmet.xssFilter())
-  server.use(helmet.frameguard('deny'))
-  server.use(helmet.ieNoOpen())
-  server.use(helmet.noSniff())
+  if (process.env.NODE_ENV === 'production') {
+    // Security settings
+    // hpp protects against parameter pollution attacks
+    server.use(hpp())
+    // Helmet is a suite of security middleware functions to try and protect
+    // against common attacks. Get more info from the helmet README
+    server.use(helmet.csp({
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          'oss.maxcdn.com'
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'"],
+        connectSrc: ["'self'", 'ws:', 'jsonplaceholder.typicode.com'],
+        fontSrc: ["'self'"],
+        objectSrc: ["'none'"],
+        mediaSrc: ["'none'"],
+        frameSrc: ["'none'"]
+      },
+      disableAndroid: false
+    }))
+    server.use(helmet.xssFilter())
+    server.use(helmet.frameguard('deny'))
+    server.use(helmet.ieNoOpen())
+    server.use(helmet.noSniff())
+  }
 
   server._listen = server.listen
 
