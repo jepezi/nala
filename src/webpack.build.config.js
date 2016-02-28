@@ -93,7 +93,7 @@ var frontendScriptConfig = {
 var frontendPrerenderConfig = {
   entry: {
     // main: './server/renderer/prerenderer.js'
-    main: ['babel-polyfill', path.join(__dirname, 'renderer/prerenderer.js')]
+    main: path.join(__dirname, 'renderer/prerenderer.js')
   },
   // outputPath: path.join(__dirname, '../public/dist/prerenderer')
   outputPath: path.join(APPPATH, 'public', 'dist', 'prerenderer')
@@ -186,7 +186,10 @@ module.exports = [
     /^lodash(\/.*)?$/,
     "redux",
     "iconv-lite",
-    "serialize-javascript"
+    "serialize-javascript",
+    "normalizr",
+    "redux-logger",
+    "isomorphic-fetch"
   ],
   module: {
     exprContextRegExp: /$^/,
