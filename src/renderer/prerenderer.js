@@ -49,7 +49,7 @@ export default class MainRenderer {
   render(req, callback) {
     const store = configureStore();
 
-    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+    match({ routes: routes.default, location: req.url }, (error, redirectLocation, renderProps) => {
       if (redirectLocation) {
         let redirectPath = redirectLocation.pathname + redirectLocation.search;
         if (redirectLocation.state && redirectLocation.state.intend) {
