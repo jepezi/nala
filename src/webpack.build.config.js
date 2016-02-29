@@ -21,8 +21,7 @@ var jsloader = {
       'transform-runtime',
       'transform-react-constant-elements', // optimize: constant first
       'transform-react-inline-elements' // optimize
-    ],
-    // plugins: ['transform-runtime']
+    ]
   }
 }
 // var jsloader5 = {
@@ -75,11 +74,9 @@ var commonloaders = [
 
 var frontendScriptConfig = {
   entry: {
-    // main: './src/client/main.js',
     main: path.join(APPPATH, 'src/client/main.js'),
     vendor: ['react', 'react-dom', 'react-router', 'redux', 'react-redux'],
   },
-  // outputPath: path.join(__dirname, '../public/dist/static')
   outputPath: path.join(APPPATH, 'public', 'dist', 'static')
 };
 
@@ -92,14 +89,12 @@ var frontendScriptConfig = {
  */
 var frontendPrerenderConfig = {
   entry: {
-    // main: './server/renderer/prerenderer.js'
-    main: path.join(__dirname, '..', 'renderer', 'prerenderer.js')
+    main: path.join(__dirname, 'renderer', 'prerenderer.js')
   },
-  // outputPath: path.join(__dirname, '../public/dist/prerenderer')
   outputPath: path.join(APPPATH, 'public', 'dist', 'prerenderer')
 };
 
-// export webpack config for 3.
+// export webpack config
 module.exports = [
 {
   // frontend ------------------------------------------------------
@@ -150,10 +145,6 @@ module.exports = [
       },
       sourceMap: false
     })
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: { warnings: false }
-    // })
   ]
 },
 {
@@ -213,11 +204,7 @@ module.exports = [
       __DEVTOOLS__: false,
     }),
     // optimizations
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: { warnings: false }
-    // })
+    new webpack.optimize.DedupePlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
