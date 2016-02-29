@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import path from 'path';
 
 function createSimpleRenderer(htmlFileName) {
-  const html = readFileSync(path.resolve(__dirname, '..', '..', 'html', htmlFileName), 'utf-8');
+  const html = readFileSync(path.resolve(__dirname, '..', 'html', htmlFileName), 'utf-8');
 
   function SimpleRenderer(options) {
     this.html = html

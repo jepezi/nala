@@ -93,7 +93,7 @@ var frontendScriptConfig = {
 var frontendPrerenderConfig = {
   entry: {
     // main: './server/renderer/prerenderer.js'
-    main: path.join(__dirname, 'renderer/prerenderer.js')
+    main: path.join(__dirname, '..', 'renderer', 'prerenderer.js')
   },
   // outputPath: path.join(__dirname, '../public/dist/prerenderer')
   outputPath: path.join(APPPATH, 'public', 'dist', 'prerenderer')

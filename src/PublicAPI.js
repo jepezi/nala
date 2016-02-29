@@ -19,7 +19,7 @@ const devStat = {
 };
 
 const RendererClass = __DEVELOPMENT__
-  ? require('./renderer/simplerenderer.js')('client.html')
+  ? require('../renderer/simplerenderer.js')('client.html')
   : require(path.join(APPPATH, 'public/dist/prerenderer/main.js')).default;
 
 const stat = __DEVELOPMENT__
