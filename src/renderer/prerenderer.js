@@ -8,7 +8,10 @@ import serialize from 'serialize-javascript';
 import { RoutingContext, match } from 'react-router';
 
 import configureStore from 'client/redux/configureStore';
-import { APP_PATH, PRERENDER_FILENAME } from '../constant';
+
+const APP_PATH = process.cwd();
+const CONFIG = require(path.join(APP_PATH, 'config.js'));
+const PRERENDER_FILENAME = CONFIG.PRERENDER_FILENAME || 'prerender.html'
 // import routes from 'client/routes';
 /**
 In lib/renderer/prerender.js, we have these 2 lines.

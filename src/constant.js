@@ -6,4 +6,3 @@ export const DEV_PORT = process.env.DEV_PORT || 3001
 export const CONFIG = require(path.join(APP_PATH, 'config.js'))
 export const ENTRY_CLIENT = CONFIG.ENTRY_CLIENT || 'src/main.js';
 export const PUBLIC_DIR = CONFIG.PUBLIC_DIR || '/dist/static/'
-export const PRERENDER_FILENAME = CONFIG.PRERENDER_FILENAME || 'prerender.html'
