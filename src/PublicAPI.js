@@ -7,8 +7,7 @@ import hpp from 'hpp';
 import helmet from 'helmet';
 
 //
-const APPPATH = process.cwd();
-const PORT = 3000;
+import { APP_PATH, APP_PORT } from './constant';
 
 //
 const devStat = {
@@ -20,11 +19,11 @@ const devStat = {
 
 const RendererClass = __DEVELOPMENT__
   ? require('./renderer/simplerenderer.js')('client.html')
-  : require(path.join(APPPATH, 'public/dist/prerenderer/main.js')).default;
+  : require(path.join(APP_PATH, 'public/dist/prerenderer/main.js')).default;
 
 const stat = __DEVELOPMENT__
   ? devStat
-  : require(path.join(APPPATH, 'webpack-stats.json'));
+  : require(path.join(APP_PATH, 'webpack-stats.json'));
 
 const renderer = new RendererClass({
   cssUrl: stat.publicPath + [].concat(stat.assetsByChunkName.main)[1],
@@ -41,7 +40,7 @@ export function createServer() {
   }
 
   server.disable('x-powered-by')
-  server.use(express.static(path.join(APPPATH, 'public')))
+  server.use(express.static(path.join(APP_PATH, 'public')))
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({ extended: true }));
 
@@ -100,10 +99,10 @@ export function createServer() {
       });
     })
 
-    server._listen(PORT, () => {
+    server._listen(APP_PORT, () => {
       console.log()
       console.log(`NODE_ENV=${process.env.NODE_ENV}`)
-      console.log(`Express server listening on port`, PORT)
+      console.log(`Express server listening on port`, APP_PORT)
     })
   }
 

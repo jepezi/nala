@@ -1,14 +1,14 @@
 var path = require('path');
 var webpack = require('webpack');
 import { jsonloader, jsloaderDev, cssloaderDev } from './webpack.utils';
-import { APP_PATH, ENTRY_CLIENT } from './constant';
+import { APP_PATH, ENTRY_CLIENT, DEV_PORT } from './constant';
 
 // export webpack config object.
 module.exports = {
   devtool: 'cheap-eval-source-map',
   entry: {
     main: [
-      'webpack-hot-middleware/client?path=http://localhost:3001/__webpack_hmr',
+      'webpack-hot-middleware/client?path=http://localhost:' + DEV_PORT + '/__webpack_hmr',
       path.join(APP_PATH, ENTRY_CLIENT)
     ]
   },
@@ -16,7 +16,7 @@ module.exports = {
     path: path.join(APP_PATH, 'public', 'dist'),
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
-    publicPath: 'http://localhost:3001/dist/',
+    publicPath: 'http://localhost:' + DEV_PORT + '/dist/',
   },
   module: {
     loaders: [jsloaderDev, jsonloader].concat(cssloaderDev)

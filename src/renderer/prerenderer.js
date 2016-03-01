@@ -8,7 +8,7 @@ import serialize from 'serialize-javascript';
 import { RoutingContext, match } from 'react-router';
 
 import configureStore from 'client/redux/configureStore';
-
+import { APP_PATH, PRERENDER_FILENAME } from './constant';
 // import routes from 'client/routes';
 /**
 In lib/renderer/prerender.js, we have these 2 lines.
@@ -34,7 +34,7 @@ routes: _routes2.default.default
 const routes = require('client/routes');
 
 const markup = readFileSync(
-  path.resolve(process.cwd(), 'public/prerender.html'),
+  path.resolve(APP_PATH, 'public', PRERENDER_FILENAME),
   'utf-8'
 );
 
