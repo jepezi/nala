@@ -27,7 +27,7 @@ var frontendScriptConfig = {
     main: path.join(APP_PATH, ENTRY_CLIENT),
     vendor: ['react', 'react-dom', 'react-router', 'redux', 'react-redux'],
   },
-  outputPath: path.join(APP_PATH, 'public', 'dist', 'static')
+  outputPath: path.join(APP_PATH, 'public', PUBLIC_DIR)
 };
 
 // frontendPrerenderConfig
