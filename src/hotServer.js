@@ -1,6 +1,6 @@
 var express = require('express');
 var webpack = require('webpack');
-var devPort = 3001;
+import { DEV_PORT } from './constant';
 
 var webpackConfig = require('./webpack.hot.config');
 var compiler = webpack(webpackConfig);
@@ -18,10 +18,10 @@ var app = express();
 app.use(require('webpack-dev-middleware')(compiler, serverOptions));
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.listen(devPort, function onAppListening(err) {
+app.listen(DEV_PORT, function onAppListening(err) {
   if (err) {
     console.error(err);
   } else {
-    console.info('==> 🚧  Webpack development server listening on port %s', devPort);
+    console.info('==> 🚧  Webpack development server listening on port %s', DEV_PORT);
   }
 });
