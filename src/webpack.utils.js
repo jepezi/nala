@@ -65,17 +65,17 @@ export const jsloaderDev = {
  */
 export const cssloaderExtract = [
   { test: /\.module.s?css$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2!postcss!sass?outputStyle=expanded&' +
-      "includePaths[]=" + encodeURIComponent(path.resolve(APPPATH, 'src'))) },
+      "includePaths[]=" + encodeURIComponent(path.resolve(APP_PATH, 'src'))) },
   { test: /^((?!\.module).)*css$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?outputStyle=expanded&' +
-      "includePaths[]=" + encodeURIComponent(path.resolve(APPPATH, 'src'))) },
+      "includePaths[]=" + encodeURIComponent(path.resolve(APP_PATH, 'src'))) },
 ];
 
 export const cssloaderPrerender = [
-  { test: /\.module.s?css$/, loader:  'css/locals?modules&importLoaders=2!postcss!sass?outputStyle=expanded&' + "includePaths[]=" + encodeURIComponent(path.resolve(APPPATH, 'src')) },
-  { test: /^((?!\.module).)*css$/, loader: 'css/locals!postcss!sass?outputStyle=expanded&' + "includePaths[]=" + encodeURIComponent(path.resolve(APPPATH, 'src')) },
+  { test: /\.module.s?css$/, loader:  'css/locals?modules&importLoaders=2!postcss!sass?outputStyle=expanded&' + "includePaths[]=" + encodeURIComponent(path.resolve(APP_PATH, 'src')) },
+  { test: /^((?!\.module).)*css$/, loader: 'css/locals!postcss!sass?outputStyle=expanded&' + "includePaths[]=" + encodeURIComponent(path.resolve(APP_PATH, 'src')) },
 ];
 
 export const cssloaderDev = [
-  { test: /\.module.s?css$/, loader:  'style!css?modules&importLoaders=1&sourceMap&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?outputStyle=expanded&' + "includePaths[]=" + encodeURIComponent(path.resolve(APPPATH, 'src')) },
-  { test: /^((?!\.module).)*css$/, loader: 'style!css!postcss!sass?outputStyle=expanded&sourceMap&' + "includePaths[]=" + encodeURIComponent(path.resolve(APPPATH, 'src')) },
+  { test: /\.module.s?css$/, loader:  'style!css?modules&importLoaders=1&sourceMap&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?outputStyle=expanded&' + "includePaths[]=" + encodeURIComponent(path.resolve(APP_PATH, 'src')) },
+  { test: /^((?!\.module).)*css$/, loader: 'style!css!postcss!sass?outputStyle=expanded&sourceMap&' + "includePaths[]=" + encodeURIComponent(path.resolve(APP_PATH, 'src')) },
 ];
