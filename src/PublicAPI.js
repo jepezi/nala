@@ -7,11 +7,11 @@ import hpp from 'hpp';
 import helmet from 'helmet';
 
 //
-import { APP_PATH, APP_PORT } from './constant';
+import { APP_PATH, APP_PORT, DEV_PORT } from './constant';
 
 //
 const devStat = {
-  publicPath: 'http://localhost:3001/dist/',
+  publicPath: 'http://localhost:' + DEV_PORT + '/dist/',
   assetsByChunkName: {
     main: 'main.js'
   }
