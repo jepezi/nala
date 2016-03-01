@@ -1,6 +1,6 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var APPPATH = process.cwd();
+import { APP_PATH } from './constant';
 
 /**
  * [Loader] Common
