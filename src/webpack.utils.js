@@ -1,3 +1,5 @@
+var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var APPPATH = process.cwd();
 
 /**
