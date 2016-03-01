@@ -9,9 +9,6 @@ import { RoutingContext, match } from 'react-router';
 
 import configureStore from 'client/redux/configureStore';
 
-const APP_PATH = process.cwd();
-const CONFIG = require(path.join(APP_PATH, 'config.js'));
-const PRERENDER_FILENAME = CONFIG.PRERENDER_FILENAME || 'prerender.html'
 // import routes from 'client/routes';
 /**
 In lib/renderer/prerender.js, we have these 2 lines.
@@ -37,7 +34,7 @@ routes: _routes2.default.default
 const routes = require('client/routes');
 
 const markup = readFileSync(
-  path.resolve(APP_PATH, 'public', PRERENDER_FILENAME),
+  path.resolve(process.cwd(), 'public', 'prerender.html'),
   'utf-8'
 );
 
