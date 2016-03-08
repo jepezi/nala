@@ -1,8 +1,8 @@
 import path from 'path';
 import { readFileSync } from 'fs';
-// import React from 'react';
-// import { renderToString } from 'react-dom/server';
-import React, { renderToString } from 'react/dist/react.min'; // optimize: use minified react
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+// import React, { renderToString } from 'react/dist/react.min'; // optimize: use minified react
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { RoutingContext, match } from 'react-router';
