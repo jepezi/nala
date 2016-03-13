@@ -7,7 +7,7 @@ import hpp from 'hpp';
 import helmet from 'helmet';
 
 //
-import { APP_PATH, APP_PORT, DEV_PORT, WHITELIST } from './constant';
+import { APP_PATH, APP_PORT, DEV_PORT, CSP_OPTIONS } from './constant';
 
 //
 const devStat = {
@@ -52,23 +52,7 @@ export function createServer() {
     server.use(hpp())
     // Helmet is a suite of security middleware functions to try and protect
     // against common attacks. Get more info from the helmet README
-    server.use(helmet.csp({
-      directives: {
-        defaultSrc: ["'self'"].concat(WHITELIST),
-        // scriptSrc: [
-        //   "'self'",
-        //   "'unsafe-inline'",
-        // ],
-        // styleSrc: ["'self'", "'unsafe-inline'"],
-        // imgSrc: ["'self'"],
-        // connectSrc: ["'self'", 'ws:',],
-        // fontSrc: ["'self'"],
-        // objectSrc: ["'none'"],
-        // mediaSrc: ["'none'"],
-        // frameSrc: ["'none'"]
-      },
-      disableAndroid: false
-    }))
+    server.use(helmet.csp(CSP_OPTIONS))
     server.use(helmet.xssFilter())
     server.use(helmet.frameguard('deny'))
     server.use(helmet.ieNoOpen())
