@@ -7,7 +7,7 @@ import hpp from 'hpp';
 import helmet from 'helmet';
 
 //
-import { APP_PATH, APP_PORT, DEV_PORT } from './constant';
+import { APP_PATH, APP_PORT, DEV_PORT, WHITELIST } from './constant';
 
 //
 const devStat = {
@@ -54,19 +54,18 @@ export function createServer() {
     // against common attacks. Get more info from the helmet README
     server.use(helmet.csp({
       directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: [
-          "'self'",
-          "'unsafe-inline'",
-          'oss.maxcdn.com'
-        ],
-        styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'"],
-        connectSrc: ["'self'", 'ws:', 'jsonplaceholder.typicode.com'],
-        fontSrc: ["'self'"],
-        objectSrc: ["'none'"],
-        mediaSrc: ["'none'"],
-        frameSrc: ["'none'"]
+        defaultSrc: ["'self'"].concat(WHITELIST),
+        // scriptSrc: [
+        //   "'self'",
+        //   "'unsafe-inline'",
+        // ],
+        // styleSrc: ["'self'", "'unsafe-inline'"],
+        // imgSrc: ["'self'"],
+        // connectSrc: ["'self'", 'ws:',],
+        // fontSrc: ["'self'"],
+        // objectSrc: ["'none'"],
+        // mediaSrc: ["'none'"],
+        // frameSrc: ["'none'"]
       },
       disableAndroid: false
     }))
