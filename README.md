@@ -75,3 +75,51 @@ server.start();
 </html>
 
 ```
+
+## Packages
+
+```
+npm i \
+autoprefixer \
+babel-core \
+babel-loader \
+babel-plugin-transform-react-constant-elements \
+babel-plugin-transform-react-inline-elements \
+babel-plugin-transform-runtime \
+babel-polyfill \
+babel-preset-es2015 \
+babel-preset-es2015-native-modules \
+babel-preset-react \
+babel-preset-react-hmre \
+babel-preset-stage-2 \
+babel-register \
+body-parser \
+compression \
+css-loader \
+dotenv \
+express \
+extract-text-webpack-plugin \
+file-loader \
+helmet \
+hpp \
+isomorphic-fetch \
+json-loader \
+lodash \
+node-sass \
+normalizr \
+postcss-loader \
+react@15.0.0-rc.1 \
+react-dom@15.0.0-rc.1 \
+react-redux \
+react-router \
+redux \
+redux-logger \
+rimraf \
+sass-loader \
+serialize-javascript \
+stats-webpack-plugin \
+style-loader \
+webpack@2.1.0-beta.4 \
+webpack-dev-middleware \
+webpack-hot-middleware
+```
