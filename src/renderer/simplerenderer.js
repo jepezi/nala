@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { CSR_HTMLFILE } from './constant';
+import { CSR_HTMLFILE } from '../constant';
 
 function createSimpleRenderer() {
   const html = readFileSync(CSR_HTMLFILE, 'utf-8');
