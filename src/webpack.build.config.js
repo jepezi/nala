@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require("stats-webpack-plugin");
 import { jsonloader, imageloader, fontloader, jsloader, cssloaderExtract, cssloaderPrerender } from './webpack.utils';
 
-import { APP_PATH, ENTRY_CLIENT, PUBLIC_DIR } from './constant';
+import { APP_PATH, ENTRY_CLIENT, PUBLIC_PATH } from './constant';
 
 var resolveModules = [
   path.resolve(APP_PATH, 'src'),
@@ -27,7 +27,7 @@ var frontendScriptConfig = {
     main: path.join(APP_PATH, ENTRY_CLIENT),
     vendor: ['react', 'react-dom', 'react-router', 'redux', 'react-redux'],
   },
-  outputPath: path.join(APP_PATH, 'public', PUBLIC_DIR)
+  outputPath: path.join(APP_PATH, 'public', PUBLIC_PATH)
 };
 
 // frontendPrerenderConfig
@@ -51,7 +51,7 @@ module.exports = [
     path: frontendScriptConfig.outputPath,
     filename: '[name].js?[chunkhash]',
     chunkFilename: '[name].clientchunk.js?[chunkhash]',
-    publicPath: PUBLIC_DIR
+    publicPath: PUBLIC_PATH
   },
   module: {
     loaders: [].concat(commonloaders, cssloaderExtract)
@@ -98,7 +98,7 @@ module.exports = [
     path: frontendPrerenderConfig.outputPath,
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
-    publicPath: PUBLIC_DIR,
+    publicPath: PUBLIC_PATH,
     libraryTarget: 'commonjs2'
   },
   // externals: fs.readdirSync(

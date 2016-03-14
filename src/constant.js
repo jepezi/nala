@@ -5,7 +5,7 @@ export const APP_PORT = process.env.PORT || 3000
 export const DEV_PORT = process.env.DEV_PORT || 3001
 export const CONFIG = require(path.join(APP_PATH, 'config.js'))
 export const ENTRY_CLIENT = CONFIG.entry || 'src/main.js';
-export const PUBLIC_DIR = CONFIG.public_dir || '/dist/static/';
+export const PUBLIC_PATH = CONFIG.publicPath || '/dist/static/';
 export const CSR_HTMLFILE = CONFIG.html
   ? path.resolve(process.cwd(), CONFIG.html)
   : path.resolve(__dirname, '..', 'html', 'client.html');
