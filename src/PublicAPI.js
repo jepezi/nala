@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import hpp from 'hpp';
 import helmet from 'helmet';
+import favicon from 'serve-favicon';
 
 //
 import { APP_PATH, APP_PORT, DEV_PORT, CSP_OPTIONS } from './constant';
@@ -42,6 +43,7 @@ export function createServer() {
   }
 
   server.disable('x-powered-by')
+  server.use(favicon(path.join(APP_PATH, 'public/favicon.ico')));
   server.use(express.static(path.join(APP_PATH, 'public')))
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({ extended: true }));

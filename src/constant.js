@@ -50,15 +50,3 @@ cspOptions.browserSniff = typeof csp.browserSniff !== 'undefined'
   ? csp.browserSniff : true;
 
 export const CSP_OPTIONS = cspOptions;
-
-// scriptSrc: [
-//   "'self'",
-//   "'unsafe-inline'",
-// ],
-// styleSrc: ["'self'", "'unsafe-inline'"],
-// imgSrc: ["'self'"],
-// connectSrc: ["'self'", 'ws:',],
-// fontSrc: ["'self'"],
-// objectSrc: ["'none'"],
-// mediaSrc: ["'none'"],
-// frameSrc: ["'none'"]
