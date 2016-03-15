@@ -67,7 +67,7 @@ export function createServer() {
     throw new Error('[nala]', 'Do not call `server.listen()`, use `server.start()`')
   }
 
-  server.start = () => {
+  server.start = (toInjectedObject) => {
     server.all('*', (req, res) => {
       renderer.render(req, (err, redirect, html) => {
         if (err) {
@@ -82,7 +82,13 @@ export function createServer() {
         }
 
         res.type('html');
-        res.end(html);
+        if (toInjectedObject) {
+          res.end(html.replace(
+            toInjectedObject.key, JSON.stringify(req.session[toInjectedObject.value])
+          ))
+        } else {
+          res.end(html);
+        }
       });
     })
 
