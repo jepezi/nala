@@ -7,7 +7,11 @@ import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { RoutingContext, match } from 'react-router';
 
-import configureStore from 'client/redux/configureStore';
+import configureStore from 'redux/configureStore';
+
+import { CSR_HTMLFILE } from '../constant';
+
+console.warn('from prerender: ',CSR_HTMLFILE);
 
 // import routes from 'client/routes';
 /**
@@ -31,14 +35,14 @@ so to use, we need to do ugly double default way.
 routes: _routes2.default.default
 **/
 // FIX: try normal require.
-const routes = require('client/routes');
+const routes = require('routes');
 
 const markup = readFileSync(
   path.resolve(process.cwd(), 'public', 'prerender.html'),
   'utf-8'
 );
 
-export default class MainRenderer {
+class MainRenderer {
   constructor(options) {
     this.html = markup
       .replace('__CSS__', options.cssUrl)
@@ -117,3 +121,5 @@ export default class MainRenderer {
     });
   }
 }
+
+module.exports = MainRenderer;
