@@ -9,10 +9,6 @@ import { RoutingContext, match } from 'react-router';
 
 import configureStore from 'redux/configureStore';
 
-import { CSR_HTMLFILE } from './constant';
-
-console.warn('from prerender: ',CSR_HTMLFILE);
-
 // import routes from 'client/routes';
 /**
 In lib/renderer/prerender.js, we have these 2 lines.
