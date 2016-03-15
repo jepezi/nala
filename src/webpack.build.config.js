@@ -35,7 +35,7 @@ var frontendScriptConfig = {
 // (no css, css is just a map in main.js)
 var frontendPrerenderConfig = {
   entry: {
-    main: path.join(__dirname, 'renderer', 'prerenderer.js')
+    main: path.join(__dirname, 'prerenderer.js')
   },
   outputPath: path.join(APP_PATH, 'public', 'dist', 'prerenderer')
 };

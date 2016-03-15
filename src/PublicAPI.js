@@ -19,10 +19,10 @@ const devStat = {
 };
 
 const RendererClass = __DEVELOPMENT__
-  ? require('./renderer/simplerenderer.js')()
+  ? require('./simplerenderer.js')()
   : __SSR__
-    ? require(path.join(APP_PATH, 'public/dist/prerenderer/main.js')).default
-    : require('./renderer/simplerenderer.js')()
+    ? require(path.join(APP_PATH, 'public/dist/prerenderer/main.js'))
+    : require('./simplerenderer.js')()
 
 const stat = __DEVELOPMENT__
   ? devStat
