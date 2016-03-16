@@ -33,8 +33,14 @@ routes: _routes2.default.default
 // FIX: try normal require.
 const routes = require('routes');
 
+const config = require('config');
+
+const prerenderHtmlFilePath = config.prerender_html
+  ? path.resolve(process.cwd(), config.prerender_html)
+  : path.resolve(process.cwd(), 'public', 'prerender.html');
+
 const markup = readFileSync(
-  path.resolve(process.cwd(), 'public', 'prerender.html'),
+  prerenderHtmlFilePath,
   'utf-8'
 );
 

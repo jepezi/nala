@@ -129,7 +129,7 @@ module.exports = [
     loaders: [].concat(commonloaders, cssloaderPrerender)
   },
   resolve: {
-    modules: resolveModules
+    modules: resolveModules.concat(APP_PATH)
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
