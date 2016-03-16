@@ -1,8 +1,9 @@
 import path from 'path';
 import { readFileSync } from 'fs';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-// import React, { renderToString } from 'react/dist/react.min'; // optimize: use minified react
+// import React from 'react';
+import React from 'react/dist/react.min';
+// import { renderToString } from 'react-dom/server';
+import ReactDOMServer from 'react-dom/dist/react-dom-server.min'; // optimize: use minified react
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { RoutingContext, match } from 'react-router';
@@ -88,7 +89,7 @@ class MainRenderer {
       // wait for fetched state data in store
       Promise.all(promises)
         .then(() => {
-          const __CONTENT__ = renderToString(
+          const __CONTENT__ = ReactDOMServer.renderToString(
             <Provider store={store}>
               <RoutingContext {...renderProps}/>
             </Provider>
